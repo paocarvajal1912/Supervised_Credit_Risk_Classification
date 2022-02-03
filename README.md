@@ -5,9 +5,9 @@
 
 The purpose of this anaylsis is to construct a model to predict the creditworthness of borrowers from a peer-to-peer lending service company. The model should be able to distinguish between healthy and highly-risk loans so the company minimize the cost of approving highly-risky loans that default, and maximize the profit associated to approve healthy loans.
 
-The data use in the model corresponds to historical loans and key financial variables associated to the borrower financial position and the loan characteristics, that helps to determine whether a person will be able to pay back a loan or not. These variables are the loan size, the interest rate, the borrower income, the borrower debt to income ratio, the num of accounts of the borrower, his/her total debt, and whether he/she has any derogatory marks.
+The data used in the model corresponds to historical loans and key financial variables associated to the borrower financial position and the loan characteristics. This data helps to determine whether a person will be able to pay back a loan or not. These variables are the loan size, the interest rate, the borrower income, the borrower debt to income ratio, the number of accounts of the borrower, his/her total debt, and whether he/she has any derogatory marks.
 
-The data consist of 77,536 loans, from which 75,036 are healthy loans, and 2,500 are defaulted loans (high-risk loans). We can see that there is a considerable imbalance in the data, which is usual given that in general people tend to pay their obligations. We have applied machine learning and methodologies that allow us to deal with the imbalance limitation in the data.
+The data consist of 77,536 loans, from which 75,036 are healthy loans, and 2,500 are defaulted loans (high-risk loans). We can see that there is a considerable imbalance in the data, which is usual given that people tend to pay their obligations. We have applied machine learning and methodologies that allow us to deal with the imbalance limitation in the data.
 
 
 ## Stages of the Machine Learning Process
