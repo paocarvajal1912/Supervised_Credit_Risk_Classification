@@ -18,9 +18,9 @@ The process involved in machine learning modelling consist on the following step
 
 ![DataOverview](Images/01_DataOverview.png)
 
-2. **Definition of training and test data.** For this, we split the data into **training** and **testing** data sets, by applying the [`train_test_split function`](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html) from the Model Selection module of the SKlearn library in Python. The **training data** is used to fit the model, and the **test data** (25% of the set) is used to measure the quality of the predictions. 
+2. **Definition of training and test data.** For this, we split the data into **training** and **testing** data sets, by applying the [`train_test_split` function](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html) from the Model Selection module of the SKlearn library in Python. The **training data** is used to fit the model, and the **test data** (25% of the set) is used to measure the quality of the predictions. 
 
-3. **Creation of potencial models to evaluate.** We create two Logistic Regression machine learning models by applying the [`LogisticRegression`](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression) method from the Linear Model module of SKLearn. The first one, **Machine Learning Model 1**, directly uses the original loan data. The second one, **Machine Learning Model 2**, attempts to improve the model by applying a technique called **oversampling** to deal with the imbalance between the amount of high-risk and healthy loans in the original data. The [`RandomOverSampler`](https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.RandomOverSampler.html#imblearn.over_sampling.RandomOverSampler) method, available in the Over Sampling module of the Imblearn library, allow us to artificially increase the amount of defaulted loans in the data by randomly select defaulted loans with reposition, allowing to equalize the number of samples in both classes. An screenshot of the number of observations after the equalization follows.
+3. **Creation of potencial models to evaluate.** We create two Logistic Regression machine learning models by applying the [`LogisticRegression`](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression) method from the Linear Model module of SKLearn. The first one, **Machine Learning Model 1**, directly uses the original loan data. The second one, **Machine Learning Model 2**, attempts to improve the model by applying a technique called **oversampling** to deal with the imbalance between the amount of high-risk and healthy loans in the original data. The [`RandomOverSampler`](https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.RandomOverSampler.html#imblearn.over_sampling.RandomOverSampler) method, available in the Over Sampling module of the `Imblearn` library, allow us to artificially increase the amount of defaulted loans in the data by randomly select defaulted loans with reposition, allowing to equalize the number of samples in both classes. An screenshot of the number of observations after the equalization follows.
 
 <img src="Images/03_ResampleNumbers.png" width="250" />
 
@@ -99,7 +99,7 @@ We recommend the use of Model 2, because of its excellent balanced performance. 
 ## Technologies used
 
 This code is write in Python, in Jupyter lab.
-The analys was made with an extensively use of the `*SkLearn*` library, and its `*metrics*`, `*preprocessing*`, `*model_selection*`, and `*linear_model*` modules.
+The analys was made with an extensively use of the `SkLearn` library, and its `metrics`, `preprocessing`, `model_selection`, and `linear_model` modules.
 Other libriries used are `NumPy`, `Pandas`, `Pathlib`, and `Wanrnings`.
 
 ## Instalation Guide
