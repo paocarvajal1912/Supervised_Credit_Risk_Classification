@@ -87,13 +87,13 @@ From this results we can make the following conclusions:
 
 ## Summary
 
-Two Logistic Regression machine learning models were constructed and compared on predicting the quality of loans. Model 1 used the imbalanced oriinal data, and Model 2 included a treatment for that imbalance. 
+Two Logistic Regression machine learning models were constructed and compared on predicting the quality of loans. Model 1 used the imbalanced original data, and Model 2 included a treatment for that imbalance. 
 
 Both models have positive results. Both have a balance accuracy above 95%, and almost perfect metrics for healthy loans recognition. That said, model 2 have better performance in recognizing high-risk loans, with a recall of 100%, above the 92% of Model 1.
 
 The weaker metric on both was an 85% precision in the prediction of high-risk loans. This implies the opportunity cost of rejecting healthy loans due to a wrong classification as high-risk loans.
 
-We recommend the use of Model 2, because of its excellent balanced performance. Its capacity to recognize a high-risk loan with an statistically perfect score will allow to avoid the more important and dangerous costs: the cost of default. We acknoledge the draw back of falsely classifying healthy loans as risky 15% of the time. However that opportunity cost does not imply a risk for the business survival, and still 85% of the time the classification is done correctly. The more important characteristics is to prevent defaults, and the performance of the model is statistically unbeatable in that aspect.
+We recommend the use of Model 2, because of its excellent balanced performance. Its capacity to recognize a high-risk loan with an statistically perfect score will allow to avoid the more important and dangerous costs: the cost of default. We acknoledge the draw back of falsely classifying healthy loans as risky 15% of the time. However that opportunity cost does not imply a risk for the business survival, and still 85% of the time the classification is done correctly. The more important characteristics is to prevent defaults, and the performance of the model is statistically unbeatable in that respect.
 
 --------------------------
 ## Technologies used
