@@ -53,9 +53,9 @@ The process involved in machine learning modelling consist of the following step
 
 ---
 
-## Moodel Evaluation
+## Model Evaluation
 
-Here are the classification reports of both models.
+Here are the imbalanced classification reports of both models.
 
 <img src="Images/02_UmbalancedClassifiacationReport.png" width="700" />
 <img src="Images/04_RebalancedClassifiacationReport.png" width="700" />
@@ -136,9 +136,9 @@ Similarly, the large loan size (4+ standard deviations above average) pushes the
 
 * The **IBA** shows an improvement from 98% in Model 1 to 99% in Model 2 when applying oversampling. This improvement is due to increase in the recall for hig-risk loans.
  
-If we assumed that the benefit of preventing taking a bad loan is larger than the opportunity cost of not taking a good loan, then we prefer using the model 2 with the imbalance treatment, which is slighly better overall than the regular logistic model.
+* If we assumed that the benefit of preventing taking a bad loan is larger than the opportunity cost of not taking a good loan, then we prefer using the model 2 with the imbalance treatment, which is slighly better overall than the regular logistic model.
 
-The features that more contributed to determine risk are debt-to-income-ratio, derogatory marks, and loan size. The other features has significantly less importance, but none has zero contribution.
+* The features that more contributed to determine risk are debt-to-income-ratio, derogatory marks, and loan size. The other features has significantly less importance, but none has zero contribution.
 
 ---
 
@@ -159,6 +159,8 @@ This project is developed in **Python** using **JupyterLab** as the interactive 
 Additional libraries used include:
 - `NumPy` for numerical computations
 - `Pandas` for data manipulation and analysis
+- `shap` for feature importance
+- `imblearn` for the treatment of imbalance and imbalance metrics
 - `Pathlib` for file handling
 - `Warnings` to manage warning messages in the code
 
@@ -166,9 +168,11 @@ Additional libraries used include:
 
 ## Installation Guide
 
-The project is provided as a Jupyter notebook. If you do not have Jupyter installed, you can follow the installation instructions [here](https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html).
+- Clone the github repository
 
-Once Jupyter is installed, you can run the notebook by launching JupyterLab or Jupyter Notebook from your terminal.
+- Install the dependencies by running:
+`pip install -r requirements.txt` in the repository directory in your terminal
+
 
 --- 
 
