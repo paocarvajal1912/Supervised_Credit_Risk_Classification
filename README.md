@@ -38,7 +38,7 @@ The process involved in machine learning modelling consist of the following step
 6. **Predicting the quality of the loans** (healthy or high-risk) on the *test sample data* for both models. We used the [`predict` method](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html?highlight=fit#sklearn.linear_model.LogisticRegression.predict) of the LogisticRegression model to generate this predictions. 
 
 7. **Comparison of results.** The following key metrics were used to evaluate model performance:
-    - [balance accuracy score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.balanced_accuracy_score.html)
+    - [Imbalanced Binary Accuracy (IBA)](https://dev.to/amananandrai/performance-measures-for-imbalanced-classes-2ojj)
     - [precision score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)
     - [recall score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html). 
 
