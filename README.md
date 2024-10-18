@@ -60,25 +60,45 @@ Here are the classification reports of both models.
 <img src="Images/02_UmbalancedClassifiacationReport.png" width="700" />
 <img src="Images/04_RebalancedClassifiacationReport.png" width="700" />
 
-The key metrics described earlier - **IBA**, **precision**, and **recall**— are summarized for each model below.
+The key metrics described earlier - **IBA**, **precision**, and **recall**— are summarized side by side for both models below.
 
-### **Machine Learning Model 1 metrics:**
-- **IBA:** 98%
-- **Precision score:** 
-    - Healthy loans: 100%
-    - High-risk loans: 84%
-- **Recall score:**
-    - Healthy loans: 99%
-    - High-risk loans: 98%
 
-### **Machine Learning Model 2 metrics:**
-- **Balance Accuracy score:** 99%
-- **Precision score: **
-    - Healthy loans: 100%
-    - High-risk loans: 83%
-- **Recall scores:**
-    - Healthy loans: 99% 
-    - High-risk loans: 99%
+| Metric                  | Model 1 | Model 2 |
+|--------------------------|---------|---------|
+| **Imbalanced Binary Accuracy (IBA)** | **98%**     | **99%**     |
+| **Healthy Loans Precision** | 100%    | 100%    |
+| **Healthy Loans Recall**    | 99%     | 99%     |
+| **High-Risk Loans Precision** | 84%     | 83%     |
+| **High-Risk Loans Recall**    | 98%     | 99%     |
+
+
+* The **IBA** shows an improvement from 98% in Model 1 to 99% in Model 2 when applying oversampling. This improvement is primarily due to same increase in the recall for hig-risk loans.
+
+To see the specific differences, lets look into the confusion matrices of both models:
+
+
+**Confusion matrix for Model 1:**
+
+|                | Predicted Healthy Loans | Predicted High-Risk Loans |
+|----------------|-------------------------|---------------------------|
+| **Actual Healthy Loans** | 18,652                  | 113                       |
+| **Actual High-Risk Loans** | 10                      | 609                       |
+
+**Confusion matrix for Model 2:**
+
+|                | Predicted Healthy Loans | Predicted High-Risk Loans |
+|----------------|-------------------------|---------------------------|
+| **Actual Healthy Loans** | 18,637                  | 128                       |
+| **Actual High-Risk Loans** | 4                       | 615                       |
+
+
+
+The incremental benefit of applying imbalance is:
+ - Correct identification of additional 6 high-risk loans (615 - 609)
+ - Correct identification of additional 6 healthy loans (10 - 6)
+ - Missclassification of 15 healthy loans as highly risky (128 - 113)
+ 
+The differences are very small. Both models are great. The user preferences should determined which model to use. We will assume that, given two excellent models, avoiding default is preferable than rejecting healthy loans.
 
 ---
 
@@ -86,13 +106,13 @@ The key metrics described earlier - **IBA**, **precision**, and **recall**— ar
 
 Here are the results provided by the SHAP feature importance on the overall data (see plot below):
 
+<img src="Images/05_Feature_importance.png" width="500" />
+
 - The feature `debt_to_income_ratio` emerges as the most significant determinant in the model's assessment of loan performance.
 - `derogatory_marks`, followed closely by `loan_size`, rank as the second most important features influencing the prediction.
 - Features such as `total_debt`, `borrower_income`, and `interest_rate` play a comparatively smaller role overall, but they may become important in specific cases. These features can capture nuances in the borrower’s financial situation and provide more granular insights when the more dominant features do not fully explain the risk profile.
 - Lastly, number_of_accounts holds the least importance among all features, though it still contributes some value to the model's decision-making.
 
-
-<img src="Images/05_Feature_importance.png" width="500" />
 
 Below there is a plot for the feature contribution analysis of a high-risk **individual** loan prediction. Look for in deph analysis in the [credit_risk_resampling](credit_risk_resampling.ipynb) notebook. 
 
@@ -100,7 +120,7 @@ Below there is a plot for the feature contribution analysis of a high-risk **ind
 
 A small extract to understanding feature contributions for this individual case:
 
-** Features that Increase Risk**.
+**Features that Increase Risk**.
 - **High Debt-to-Income Ratio (SHAP Value = 11.45):**
 
 Starting from the base value of -6.74, the debt-to-income ratio pushes the prediction strongly toward high risk by itself. The positive SHAP value of 11.45 is a huge shift, indicating that a high debt-to-income ratio is a the main risk factor. This suggests the borrower is likely to struggle with repayment, and the model heavily penalizes such scenarios.
@@ -110,19 +130,13 @@ Starting from the base value of -6.74, the debt-to-income ratio pushes the predi
 Similarly, the large loan size (4+ standard deviations above average) pushes the prediction even further toward high risk, with a substantial SHAP value of 6.51. This is a dominant factor that almoves the prediction from low risk to high risk when considered alongside the debt-to-income ratio.
 
 
-
 ---
 
 ## Conclusions:
 
-* The **IBA** shows an improvement from 98% in Model 1 to 99% in Model 2 when applying oversampling. This improvement is primarily due to same increase in the recall for hig-risk loans.
-
-The incremental benefit of applying imbalance is:
- - Correct identification of additional 6 high-risk loans
- - Correct identification of additional 6 healthy loans
- - Missclassification of 15 healthy loans as highly risky
+* The **IBA** shows an improvement from 98% in Model 1 to 99% in Model 2 when applying oversampling. This improvement is due to increase in the recall for hig-risk loans.
  
-If we assumed that the benefit of preventing taking a bad loan is larger than the opportunity cost of not taking a good loan, then we prefer using the model with the imbalance treatment, which is slighly better overall than the regular logistic model. However, any of both models are highly accurate.
+If we assumed that the benefit of preventing taking a bad loan is larger than the opportunity cost of not taking a good loan, then we prefer using the model 2 with the imbalance treatment, which is slighly better overall than the regular logistic model.
 
 The features that more contributed to determine risk are debt-to-income-ratio, derogatory marks, and loan size. The other features has significantly less importance, but none has zero contribution.
 
