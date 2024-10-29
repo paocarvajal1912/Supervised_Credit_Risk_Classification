@@ -44,9 +44,9 @@ The process involved in machine learning modelling consist of the following step
 
     > The **precision score** measures how accurately the model predicts a specific class. For example, out of loans predicted to be high-risk, what percentage were actually high-risk loans. 
 
-    > The **recall score** imeasures how well the model identifies a particular class. For instance, out of all actual high-risk loans, what percentage the model correctly classifies as high-risk. 
+    > The **recall score** measures how well the model identifies a particular class. For instance, out of all actual high-risk loans, what percentage the model correctly classifies as high-risk. 
 
-    > The **Imbalanced Binary Accuracy (IBA)** designed to handle imbalanced datasets by incorporating both accuracy and the geometric mean of sensitivity (recall for the minority class) and specificity (recall for the majority class), allowing for a more balanced evaluation of classification performance.
+    > The **Imbalanced Binary Accuracy (IBA)** measures overall accuracy. It incorporates both accuracy and the geometric mean of sensitivity (recall for the minority class) and specificity (recall for the majority class), allowing for a more balanced evaluation of classification performance.
    
 
 8. **Feature Importance.** Lastly, we use SHAP analysis to identify the most influential features contributing to the model's assessment of loan health. We do this for the overall data, and individual cases.
@@ -96,9 +96,11 @@ To see the specific differences, lets look into the confusion matrices of both m
 The incremental benefit of applying imbalance is:
  - Correct identification of additional 6 high-risk loans (615 - 609)
  - Correct identification of additional 6 healthy loans (10 - 6)
+
+The trade off:
  - Missclassification of 15 healthy loans as highly risky (128 - 113)
  
-The differences are very small. Both models are great. The user preferences should determined which model to use. We will assume that, given two excellent models, avoiding default is preferable than rejecting healthy loans.
+The differences are very small. Both models are great. The user preference should determine which model to use. We will assume that, given two excellent models, avoiding default is preferable than rejecting healthy loans.
 
 ---
 
